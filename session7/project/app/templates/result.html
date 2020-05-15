@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {%load static%}
+    <link rel ="stylesheet" type='text/css' href=" {% static 'result.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class = "title">
+        <h1>글자 수는 다음과 같습니다</h1>
+    </div>
+    <div class = "presenting_result">
+        <div class = "present_result_content">
+            <!-- boxline 354*134 -->
+            >>>글자 수(공백포함) : {{total_len}}
+            <br />
+            >>>글자 수(공백제외) : {{stripped_len}}
+            <br />
+            >>>단어 수 : {{count_word}}
+            <br />
+            >>>입력한 텍스트 : {{text}}
+        </div>
+    </div>
+    <div class = "complete">
+        <div class = "complete_content">
+            완료
+        </div>    
+    </div>
+</body>
+</html>

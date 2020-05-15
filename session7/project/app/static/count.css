@@ -1,0 +1,37 @@
+body {
+    background-color: rosybrown;
+}
+
+.title {
+    text-align: center;
+    text-decoration: underline;
+    font-size: 0.8rem;
+}
+
+.input_area {
+    display: flex;
+    justify-content: center;
+}
+.input_b {
+    border: 4px dashed blue
+}
+
+.submit {
+    display: flex;
+    justify-content: center;
+    margin-left: 3rem;
+}
+
+.submit_area {
+    display: flex;
+    justify-content: center;
+}
+
+.submit_button {
+    font-size: larger;
+    text-align: center;
+    color: pink;
+    background-color: blueviolet;
+    
+}
+

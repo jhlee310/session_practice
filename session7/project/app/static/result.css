@@ -1,0 +1,44 @@
+body {
+    background-color: rosybrown;
+}
+
+.title {
+    text-align: center;
+    text-decoration: underline;
+    font-size: 0.8rem;
+}
+
+.presenting_result {
+    display: flex;
+    justify-content: center;
+}
+
+.present_result_content {
+    box-sizing: border-box;
+    width: 360px;
+    height: 140px;
+    border: 4px dashed blue;
+    font-size: 0.7rem;
+    background-color: white;
+}
+
+.complete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.3rem;
+}
+
+.complete_content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    width: 99.05px;
+    height: 35.4px;
+    color: pink;
+    background-color: blueviolet;
+    border: 0.03rem solid rgb(17, 15, 15);
+    font-size: 1.2rem;
+    
+}
