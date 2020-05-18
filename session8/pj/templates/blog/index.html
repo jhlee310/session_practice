@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>메인 게시판 페이지에요</h2>
+<h2>
+    <a href = "blog/movie">{{m_category}} 카테고리</a>
+</h2>
+<h2>글 개수</h2>
+<h3>{{m_articles}}</h3>
+<h2>
+    <a href = "blog/drama">{{d_category}} 카테고리</a>
+</h2>
+<h2>글 개수</h2>
+<h3>{{d_articles}}</h3>
+<h2>
+    <a href = "blog/entertain">{{e_category}} 카테고리</a>
+</h2>
+<h2>글 개수</h2>
+<h3>{{e_articles}}</h3>
+
+{% endblock %}

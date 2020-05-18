@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<body>
+    <h2>드라마 페이지에요</h2>
+    {% for d_article in d_articles %}
+        <li>
+            <a href = "{% url 'blog:detail' d_article.id %}">{{d_article.title}}</a>
+        </li>
+    {% endfor %}
+    <h3><a href = "{% url 'blog:new' %}">글 쓰기</a></h3>
+  
+</body>
+
+{% endblock %}

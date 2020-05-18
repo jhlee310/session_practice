@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<body>
+    <h2>글 쓰기 페이지에요</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <input name="title" placeholder="글 제목을 입력해주세요">
+        <br />
+        <textarea name="content" placeholder="글 내용을 입력해주세요" id="content" rows"15"></textarea>
+        <br />
+        <select name="category">
+            <option value="">--------</option>
+            <option value=0>영화</option>
+            <option value=1>드라마</option>
+            <option value=2>예능</option>
+            </select>
+        <br />
+        <button type="submit">글 쓰기</button>
+    </form>
+</body>
+
+
+{% endblock %}
