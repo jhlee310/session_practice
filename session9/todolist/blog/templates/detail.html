@@ -1,13 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'detail.css' %}" type='text/css'>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block css %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'detail.css' %}" type='text/css'>
+{% endblock css %}
+{% block title %} To-do-list {% endblock title %}
+{% block content %}
     <div class = "top">
         <div class = "top_title">
             <h2>일정 상세보기</h2>
@@ -32,5 +29,18 @@
         <a href = "{% url 'edit' todo.pk %}">수정하기</a>
         <a href = "{% url 'delete' todo.pk %}">삭제하기</a>
     </div>
-</body>
-</html>
+    <div>
+        {% for comment in todo.comments.all %}
+        <li>{{ comment.content }}</li>
+        <a href="{% url 'delete_comment' todo.pk comment.pk %}">댓글삭제</a>
+        {% endfor %}
+        
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="content" placeholder="댓글을 입력해주세요">
+            <button type="submit">댓글 쓰기</button>
+        </form>
+    </div>
+
+
+{% endblock content %}

@@ -1,13 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'new.css' %}" type='text/css'>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block css %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'new.css' %}" type='text/css'>
+{% endblock css %}
+{% block title %} To-do-list {% endblock title %}
+{% block content %}
     <div class = "top">
         <div class = "title">
             <h2>일정 추가하기</h2>
@@ -29,5 +26,4 @@
     <div class = "submit">
         <button type="submit">작성하기</button>
     </div>
-</body>
-</html>
+{% endblock content %}

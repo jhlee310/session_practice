@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Todo
+from .models import Todo, Comment
 from datetime import datetime
 
 # Create your views here.
@@ -23,8 +23,18 @@ def new(request):
 
 def detail(request, todo_pk):
     todo = Todo.objects.get(pk = todo_pk)
+
+    if request.method == "POST":
+            Comment.objects.create(
+                post = todo,
+                content = request.POST['content'],
+            )
+            return redirect('detail', todo_pk)
+
     context = {'todo' : todo}
     return render(request, 'detail.html', context)
+
+
 
 def edit(request, todo_pk):
     todo = Todo.objects.get(pk=todo_pk)
@@ -43,5 +53,9 @@ def edit(request, todo_pk):
 def delete(request, todo_pk):
     todo = Todo.objects.get(pk=todo_pk)
     todo.delete()
-    
     return redirect('home')
+
+def delete_comment(request, todo_pk, comment_pk):
+    comment = Comment.objects.get(pk=comment_pk)
+    comment.delete()
+    return redirect('detail', todo_pk)
