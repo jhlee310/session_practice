@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="{% static 'detail.css' %}" type='text/css'>
 {% endblock css %}
 {% block title %} To-do-list {% endblock title %}
+
 {% block content %}
     <div class = "top">
         <div class = "top_title">
@@ -26,21 +27,26 @@
     </div>
     <div class = "link_to">
         <a href = "{% url 'home' %}">홈으로</a>
+        {% if user.is_authenticated and todo.author.pk == user.pk %}
         <a href = "{% url 'edit' todo.pk %}">수정하기</a>
         <a href = "{% url 'delete' todo.pk %}">삭제하기</a>
+        {% endif %}
     </div>
     <div>
         {% for comment in todo.comments.all %}
-        <li>{{ comment.content }}</li>
-        <a href="{% url 'delete_comment' todo.pk comment.pk %}">댓글삭제</a>
+            <li>{{ comment.content }}</li>
+            {% if user.is_authenticated and comment.author.pk == user.pk %}
+                <a href="{% url 'delete_comment' todo.pk comment.pk %}">댓글삭제</a>
+            {% endif %}
         {% endfor %}
         
-        <form method="POST">
-            {% csrf_token %}
-            <input type="text" name="content" placeholder="댓글을 입력해주세요">
-            <button type="submit">댓글 쓰기</button>
-        </form>
+        {% if user.is_authenticated %}
+            <form method="POST">
+                {% csrf_token %}
+                <input type="text" name="content" placeholder="댓글을 입력해주세요">
+                <button type="submit">댓글 쓰기</button>
+            </form>
+        {% endif %}
     </div>
-
 
 {% endblock content %}

@@ -1,28 +1,28 @@
 {% extends 'base.html' %}
 {% block css %}
 {% load static %}
-<link rel="stylesheet" href="{% static 'home.css' %}" type='text/css'>
+<link rel="stylesheet" href="{% static 'home.css' %}">
 {% endblock css %}
 {% block title %} To-do-list {% endblock title %}
 {% block content %}
-    <div class = "top">
-        <div class = "title">
-            <h2>To-do list 게시판</h2>
-            <p>마감일 이른 순</p>
-        </div>
+<div class = "top">
+    <div class = "title">
+        <h2>To-do list 게시판</h2>
+        <p>마감일 이른 순</p>
     </div>
-    <div class = "middle">
-        {% for todo in todos %}
-        <ul>
-            <h1>{{todo.title}}</h1>
-            <p>{{todo.content}}</p>
-            <p>{{todo.deadline}}</p>
-            <p>남은 시간 : {{todo.deadline|timeuntil}}</p>
-            <a href = "{% url 'detail' todo.pk %}">일정 상세보기</a>
-        </ul>
-        {% endfor %}
-    </div>
-    <div class = "add_to_do">
-        <a href = "{% url 'new' %}">일정 추가하기</a>
-    </div>
+</div>
+<div class = "middle">
+    {% for todo in todos %}
+    <ul>
+        <h1>{{todo.title}}</h1>
+        <p>{{todo.content}}</p>
+        <p>{{todo.deadline}}</p>
+        <p>남은 시간 : {{todo.deadline|timeuntil}}</p>
+        <a href = "{% url 'detail' todo.pk %}">일정 상세보기</a>
+    </ul>
+    {% endfor %}
+</div> 
+<div class = "add_to_do">
+    <a href = "{% url 'new' %}">일정 추가하기</a>
+</div>
 {% endblock content %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block css %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'signup.css' %}" type='text/css'>
+{% endblock css %}
+{% block title %} 회원가입 페이지 {% endblock title %}
+{% block content %}
+    <h1>회원가입</h1>
+    {% if error %}
+    <h3 style="color: red;">{{ error }}</h3>
+    {% endif %}
+    <form method = "POST">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="이름">
+        <input type="text" name="password" placeholder="비밀번호">
+        <button type="submit">가입하기</button>
+    </form>
+{% endblock content %}

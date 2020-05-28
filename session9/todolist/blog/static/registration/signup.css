@@ -1,25 +1,12 @@
-.top {
-    text-align: center;
-}
-
-.middle p {
-    background-color: antiquewhite;
-}
-
-
-.link_to {
-    text-align: end;
-}
-
 .nav-bar {
     width: 100%;
     background-color: #ececec;
     display: flex;
     justify-content: space-around;
     align-items: center;
-}
+  }
   
-  .nav-item {
+.nav-item {
     color: black;
     text-decoration: none;
 }

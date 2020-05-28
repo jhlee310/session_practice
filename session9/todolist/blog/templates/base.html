@@ -1,15 +1,27 @@
+{% load socialaccount %}
+{% providers_media_js %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% block css %}{% endblock %}
-    <title>{% block title %}Document{% endblock %}</title>
+    {% block css %}
+    {% endblock css %}
+    <title>{% block title %}My Blog{% endblock title %}</title>
 </head>
 <body>
-    <h1>'User'의 to-do-list 블로그 </h1>
+    <div class="nav-bar">
+      <a class="nav-item" href="{% url 'home' %}">HOME</a>
+      {% if user.is_authenticated %}
+      <div class="nav-item">안녕하세요, {{ user.username }}님</div>
+      <a class="nav-item" href="{% url 'logout' %}">로그아웃</a>
+      {% else %}
+      <a class="nav-item" href="{% url 'login' %}">로그인</a>
+      <a class="nav-item" href="{% provider_login_url 'kakao' %}">카카오 로그인</a>
+      <a class="nav-item" href="{% url 'signup' %}">회원가입</a>
+      {% endif %}
+    </div>
     {% block content %}
-
-    {% endblock %}
+    {% endblock content %}
 </body>
 </html>
